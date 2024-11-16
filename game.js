@@ -1,3 +1,10 @@
+// create an object for score
+const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
+
 // create a function that accepts an arguement, compare it with computerMove and store the result in a variable
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
@@ -32,8 +39,19 @@ function playGame(playerMove) {
         }
     }
 
+    // update the score based on the result
+    if (result === 'You win.') {
+        score.wins +=1;
+
+    } else if (result === 'You lose.') {
+        score.losses +=1;
+
+    } else if (result === 'Tie.') {
+        score.ties +=1;
+    } 
+
     // display result as alert
-    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 }
 
 //the variable computerMove declared here is different from the one declared within the function scope. This variable save the return value from the function
