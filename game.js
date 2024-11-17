@@ -1,5 +1,5 @@
-// create an object for score
-const score = {
+// load the score from local storage and set a default value
+let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
     ties: 0
@@ -8,14 +8,18 @@ const score = {
 // create a function that accepts an arguement, compare it with computerMove and store the result in a variable
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
+
 // create a variable to store the result
     let result = '';
+
 // compare computerMove with playerMove
     if(playerMove === 'rock') {
         if(computerMove === 'rock') {
             result = 'Tie.';
+
         } else if (computerMove === 'paper') {
             result = 'You lose.';
+            
         } else if(computerMove === 'scissors') {
             result = 'You win.';
         }
@@ -49,6 +53,9 @@ function playGame(playerMove) {
     } else if (result === 'Tie.') {
         score.ties +=1;
     } 
+
+    // store the score in local storage
+    localStorage.setItem('score', JSON.stringify(score));
 
     // display result as alert
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
