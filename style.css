@@ -1,0 +1,43 @@
+/* change the style of the body */
+body {
+    background-color: rgb(25, 25, 25);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* change the image icons height */
+.game-icon {
+    height: 50px;
+}
+
+/* change the style for the buttons */
+.game-btn {
+    background-color: transparent;
+    border: 3px solid #fff;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* style the result shown on screen*/
+.result {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+/* change the top margin for the score */
+.score {
+    margin-top: 60px;
+}
+
+/* add style to the reset button */
+.reset-score {
+    background-color: #fff;
+    border: none;
+    font-size: 15px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
