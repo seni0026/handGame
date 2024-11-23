@@ -8,6 +8,37 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 // display the score on the website by calling the updateScoreElement function
 updateScoreElement();
 
+// create a function to play the game automatically
+// use the fuction setInterval() to run the function for a specified time
+// setInterval() takes 2 arguments, the first is the function and the other is the 
+// specified time which is in milliseconds (1000ms = 1s)
+
+// create a variable to check is the game is auto playing
+let isAutoPlaying = false;
+
+// create a variable to store the ID from the setInterval function that
+// will be used to stop the auto play
+let intervalId;
+
+function autoPlay() {
+    if (!isAutoPlaying) {
+        // store the setInterval() into ineteralId
+        intervalId = setInterval(function() {
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+
+        isAutoPlaying = true;
+
+    } else {
+        // use clearInterval to stop auto play and pass the ID of setInterval as
+        // its parameter
+        clearInterval(intervalId);
+        isAutoPlaying = false;
+    }
+    
+}
+
 // create a function that accepts an arguement, compare it with computerMove and store the result in a variable
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
