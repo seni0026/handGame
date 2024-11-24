@@ -13,17 +13,19 @@ updateScoreElement();
 // setInterval() takes 2 arguments, the first is the function and the other is the 
 // specified time which is in milliseconds (1000ms = 1s)
 
-// create a variable to check is the game is auto playing
+// create a variable to check if the game is auto playing
 let isAutoPlaying = false;
 
 // create a variable to store the ID from the setInterval function that
 // will be used to stop the auto play
 let intervalId;
 
+
 function autoPlay() {
     if (!isAutoPlaying) {
         // store the setInterval() into ineteralId
-        intervalId = setInterval(function() {
+        // use an arrow function when passing a function as a parameter
+        intervalId = setInterval(() => {
             const playerMove = pickComputerMove();
             playGame(playerMove);
         }, 1000);
@@ -38,6 +40,54 @@ function autoPlay() {
     }
     
 }
+
+// use addEventListener to play the game when the buttons are clicked
+document.querySelector('.js-rock-button')
+    // an existing function cannot be passed directly as a parameter for 
+    // addEventListener, create an arrow function and calling the existing function
+    .addEventListener('click', () => {
+        playGame('rock');
+});
+
+document.querySelector('.js-paper-button')
+    .addEventListener('click', () => {
+        playGame('paper');
+});
+
+document.querySelector('.js-scissors-button')
+    .addEventListener('click', () => {
+        playGame('scissors');
+});
+
+document.querySelector('.js-reset')
+    .addEventListener('click', () => {
+        resetScore();
+})
+
+document.querySelector('.auto-play-btn')
+    .addEventListener('click', () => {
+        autoPlay();
+});
+
+// add a feature so that the game can be played with the keyboard
+// event captures which key is being clicked
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'r') {
+        playGame('rock');
+
+    } else if (event.key === 'p') {
+        playGame('paper');
+
+    } else if (event.key === 's') {
+        playGame('scissors');
+
+    } else if (event.key === 'c') {
+        resetScore();
+
+    } else if (event.key === 'a') {
+        autoPlay();
+    }
+});
 
 // create a function that accepts an arguement, compare it with computerMove and store the result in a variable
 function playGame(playerMove) {

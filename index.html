@@ -10,17 +10,11 @@
     <main>
         <h1>Rock Paper Scissors</h1>
 
-        <button onclick="
-            playGame('rock');
-        " class="game-btn"><img src="image/rock-emoji.png" class="game-icon" alt="Rock"></button>
+        <button class="game-btn js-rock-button"><img src="image/rock-emoji.png" class="game-icon" alt="Rock"></button>
 
-        <button onclick="
-            playGame('paper');
-        " class="game-btn"><img src="image/paper-emoji.png" class="game-icon" alt="Paper"></button>
+        <button class="game-btn js-paper-button"><img src="image/paper-emoji.png" class="game-icon" alt="Paper"></button>
 
-        <button onclick="
-            playGame('scissors');
-        " class="game-btn"><img src="image/scissors-emoji.png" class="game-icon" alt="Scissors"></button>
+        <button class="game-btn js-scissors-button"><img src="image/scissors-emoji.png" class="game-icon" alt="Scissors"></button>
 
         <!-- display if the player win, lose or tie -->
         <p class="js-result result"></p>
@@ -31,15 +25,10 @@
         <!-- display the score on the website -->
         <p class="js-score score"></p>
 
-        <button onclick="
-        // reset the score by calling the function resetScore
-            resetScore();
-        " class="js-reset reset-score">Reset Score</button>
+        <button class="js-reset reset-score">Reset Score</button>
 
         <!-- create a button for auto play -->
-        <button class="auto-play-btn" onclick="
-            autoPlay();
-        ">Auto Play</button>
+        <button class="js-auto-play auto-play-btn">Auto Play</button>
     </main>
 
     <script src="game.js"></script>
